@@ -1,5 +1,5 @@
-# HelpMe-project
-The project **HelpMe-Assistance** - is your personal CLI assistant. AddressBook, NoteBook, CleanFolder -  in one App.
+# HelpAssistance
+The project **HelpAssistance** - is your personal CLI assistant. AddressBook, NoteBook, CleanFolder -  in one App.
 
 ## Table of contents
 * [General info](#general-info)
@@ -20,11 +20,11 @@ Utilised modules:
 * file_parser, pickle  
 	
 ## Setup
-To run this project, install the [helpme-assistance](https://pypi.org/project/helpme-assistance/) packaje locally using `pip` and run it using `helpme` command:
+To run this project, install the [HelpAssistance](https://pypi.org/project/HelpAssistance/) packaje locally using `pip` and run it using `helpme` command:
 
 ```
-$ pip install helpme-assistance 
+$ pip install HelpAssistance 
 $ # or
-$ pip3 install helpme-assistance
+$ pip3 install HelpAssistance
 $ helpme
 ```
