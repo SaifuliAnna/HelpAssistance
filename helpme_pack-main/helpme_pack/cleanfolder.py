@@ -1,5 +1,5 @@
-from .file_parser import *
-from .normalize import normalize
+from file_parser import *
+from normalize import normalize
 
 
 def goodbye(*args):

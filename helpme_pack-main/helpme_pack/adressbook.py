@@ -3,6 +3,7 @@ import pickle
 from collections import UserDict
 from datetime import date
 import re
+import phonenumbers
 
 
 class Field:
@@ -36,24 +37,13 @@ class Phone(Field):
         return self.__value
 
     @value.setter
-    def value(self, value: str):
-        def is_code_valid(phone_code: str) -> bool:
-            if phone_code[:2] in ('03', '04', '05', '06', '09') and phone_code[2] != '0' and phone_code != '039':
-                return True
-            return False
-
-        result = None
-        phone = value.removeprefix('+').replace('(', '').replace(')', '').replace('-', '')
-        if phone.isdigit():
-            if phone.startswith('0') and len(phone) == 10 and is_code_valid(phone[:3]):
-                result = '+38' + phone
-            if phone.startswith('380') and len(phone) == 12 and is_code_valid(phone[2:5]):
-                result = '+' + phone
-            if 10 <= len(phone) <= 14 and not phone.startswith('0') and not phone.startswith('380'):
-                result = '+' + phone
-        if result is None:
-            raise ValueError(f'Невірний тип значення {value}')
-        self.__value = result
+    def value(self, value):
+        try:
+            number = phonenumbers.parse(value, "ITU-T")
+            self.__value = phonenumbers.format_number(number, phonenumbers.PhoneNumberFormat.E164)
+        except Exception:
+            print("Enter correct number, for example +380987654321")
+            raise ValueError
 
 
 class Birthday(Field):

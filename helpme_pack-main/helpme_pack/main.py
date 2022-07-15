@@ -1,9 +1,8 @@
-from .adressbook import main as amain
-from .cleanfolder import main as clean_main
-from .notebook import main as note_book
+from adressbook import main as amain
+from cleanfolder import main as clean_main
+from notebook import main as note_book
 
 
-# main функція проекту
 def main():
     while True:
         print('Menu:',
